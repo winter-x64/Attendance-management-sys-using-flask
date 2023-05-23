@@ -1,0 +1,61 @@
+<!-- Extends the base -->
+{% extends 'base/base.html' %}
+
+<!-- Page Title -->
+{% block title %} Teacher Home {% endblock title %}
+
+<!-- Page Bode -->
+{% block body %}
+
+<br />
+<div class="container">
+  <div class="card p-3" style="width: 70%">
+    <div class="card-title text-center">
+      <h4>Add Subject</h4>
+    </div>
+    <form action="/add_subject" method="POST">
+      <!--  -->
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              id="floatingInputValue"
+            />
+            <label for="floatingInputValue">Subject Name</label>
+          </div>
+        </div>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-outline-primary">Add</button>
+    </form>
+  </div>
+
+  <br />
+  <div class="card p-3 text-center" style="width: 70%">
+    <div class="card-title">
+      <h3>Subject Lists</h3>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Subject Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for subject in Subjects %}
+        <tr>
+          <th scope="row">{{subject.id}}</th>
+          <td>{{ subject.name }}</td>
+          
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock body %}

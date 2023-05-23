@@ -1,0 +1,119 @@
+<!-- extends -->
+{% extends 'base/base.html' %}
+
+<!-- page title -->
+{% block title %} sign-up {% endblock title %}
+
+<!-- Page Body -->
+{% block body %}
+
+<br />
+<div class="container h-100 d-flex align-items-center justify-content-center">
+  <!-- ? ---------------- Card - Start ---------------- -->
+  <div class="card mb-3 border-dark mb-3" style="max-width: 80%">
+    <div class="row g-0">
+      <!-- * ---------------- Card - Image ---------------- -->
+      <div class="col-md-6">
+        <img
+          src="static/img/undraw_login_re_4vu2.svg"
+          class="img-fluid rounded-start"
+          alt="Image of a Login"
+        />
+      </div>
+      <div class="col-md-5">
+        <!-- ? ---------------- Card - Body ---------------- -->
+        <div class="card-body">
+          <!-- * ---------------- Card - Title ---------------- -->
+          <h5 class="card-title">Sign Up</h5>
+          <div class="card-text">
+            <!-- ? ---------------- Form - start ---------------- -->
+            <form action="/sign-up" method="post">
+              <!-- * ---------------- Input - Email ---------------- -->
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">
+                  Email address
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <!-- * ---------------- Input - Username ---------------- -->
+              <div class="mb-3">
+                <label for="InputName" class="form-label">Name</label>
+                <input
+                  name="name"
+                  type="text"
+                  class="form-control"
+                  id="InputName"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <!-- * ---------------- Input - PhoneNumber - parent ---------------- -->
+              <div class="mb-3">
+                <label for="InputPhoneNumber" class="form-label">
+                  Phone Number
+                </label>
+                <input
+                  name="parent_phonenumber"
+                  type="tel"
+                  class="form-control"
+                  id="InputPhoneNumber"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <!-- * ---------------- Input - Role ---------------- -->
+              <div class="mb-3">
+                <label for="InputRole" class="form-label">Role</label>
+                <select
+                  name="role"
+                  class="form-select"
+                  aria-label="Default select example"
+                  id="InputRole"
+                >
+                  <option selected>select</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="student">Student</option>
+                </select>
+              </div>
+
+              <!-- * ---------------- Input - Password ---------------- -->
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">
+                  Password
+                </label>
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                />
+              </div>
+              <!-- * ---------------- Input - Password ( Confirm ) ---------------- -->
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">
+                  Password (confirm)
+                </label>
+                <input
+                  name="confirm_password"
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                />
+              </div>
+              <!-- * ---------------- Form - Submit / reset ---------------- -->
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-primary">Cancel</button>
+            </form>
+            <!-- ? ---------------- Form - End ---------------- -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ? ---------------- Card - End ---------------- -->
+</div>
+{% endblock body %}

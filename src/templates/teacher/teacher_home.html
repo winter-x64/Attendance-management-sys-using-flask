@@ -1,0 +1,52 @@
+<!-- Extends the base -->
+{% extends 'base/base.html' %}
+
+<!-- Page Title -->
+{% block title %} Teacher Home {% endblock title %}
+
+<!-- Page Bode -->
+{% block body %}
+
+<br />
+
+<h1>Teacher Dashboard</h1>
+<!-- Dashboard -->
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">Sno</th>
+      <th scope="col">Student</th>
+      {% for subject in subjectList %}
+      <th scope="col">{{ subject.subject }}</th>
+      {% endfor %}
+      <th scope="col">
+        <a class="btn btn-outline-success btn-sm" href="/send_attendance_sms">
+          Send Report
+        </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- loops through the Users -->
+    {% for data in attendance_data %}
+
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{ data.student_name }}</td>
+      <!-- checks for data -->
+      {% if data.attendance %}
+      <!-- Percentage -->
+      {% for entry in data.attendance %}
+      <td>{{ entry.attendance_percentage }}%</td>
+       {% else %}
+      <p>No attendance data available.</p>
+       {% endfor %}
+      {% endif %}
+    </tr>
+    <tr></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- Body - end -->
+{% endblock body %}

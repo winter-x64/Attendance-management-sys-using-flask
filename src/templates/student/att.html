@@ -1,0 +1,48 @@
+<!-- Extends the base -->
+{% extends 'base/base.html' %}
+
+<!-- Page Title -->
+{% block title %} Home {% endblock title %}
+
+<!-- Page Bode -->
+{% block body %}
+
+<div class="container">
+  <form action="/search" method="POST">
+    <!--  -->
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelectGrid1" name="subject">
+            <option selected>None</option>
+            {% for subject in subj %}
+            <option value="{{subject.id}}">{{ subject.name }}</option>
+            {% endfor %}
+          </select>
+          <label for="floatingSelectGrid1">Select the Subject</label>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <!-- </div> -->
+    <button class="btn btn-outline-primary" type="submit">Search</button>
+  </form>
+
+  <br />
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Subject</th>
+        <th scope="col">Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ subject.name }}</td>
+        <td>{{ percentage }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock body %}

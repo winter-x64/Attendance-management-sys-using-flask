@@ -1,0 +1,77 @@
+<!-- Extends the base -->
+{% extends 'base/base.html' %}
+
+<!-- Page Title -->
+{% block title %} Update Attendance {% endblock title %}
+
+<!-- Page Bode -->
+{% block body %}
+<br />
+<div class="container">
+  <div class="Card-title">
+    <h1>Update the Attendance</h1>
+  </div>
+  <form action="/update_attendence" method="POST">
+    <!--  -->
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <input
+            type="date"
+            class="form-control"
+            id="floatingInputValue"
+            name="date"
+          />
+          <label for="floatingInputValue">Date</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelectGrid1" name="subject">
+            <option selected>Nil</option>
+            {% for subject in SubjList %}
+            <option value="{{subject.id}}">{{ subject.name }}</option>
+            {% endfor %}
+          </select>
+          <label for="floatingSelectGrid1">Select the Subject</label>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelectGrid2" name="hour">
+            <option selected>Nil</option>
+            <option value="H1">Hour 1</option>
+            <option value="H2">Hour 2</option>
+            <option value="H3">Hour 3</option>
+            <option value="H4">Hour 4</option>
+            <option value="H5">Hour 5</option>
+            <option value="H6">Hour 6</option>
+          </select>
+          <label for="floatingSelectGrid2">Select the Hour</label>
+        </div>
+      </div>
+    </div>
+    <!-- checkbox -->
+    {% for student in users %} {% if student.role == 'student' %}
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="{{ student.id }}"
+        id="defaultCheck1"
+        name="present"
+      />
+
+      <label class="form-check-label" for="defaultCheck1">
+        {{ student.username }}
+      </label>
+    </div>
+    {% endif %} {% endfor %}
+
+    <br />
+    <!-- </div> -->
+    <button class="btn btn-outline-primary" type="submit">done</button>
+  </form>
+  <!-- </div> -->
+</div>
+{% endblock body %}

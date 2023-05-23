@@ -1,0 +1,44 @@
+<!-- Extends the base -->
+{% extends 'base/base.html' %}
+
+<!-- Page Title -->
+{% block title %} Student List {% endblock title %}
+
+<!-- Page Bode -->
+{% block body %}
+
+<br />
+<div class="container">
+  <h2>User List</h2>
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th scope="col">Sno</th>
+        <th scope="col">Name</th>
+        <th scope="col">Role</th>
+        <th scope="col">
+          <a class="btn btn-outline-success btn-sm" href="/sign-up">Add user</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{ user.username }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          {% if current_user.role == 'teacher' %}
+          <form action="/delete_user/{{ user.id }}" method="post">
+            <button type="submit" class="btn btn-outline-danger btn-sm">
+              Delete
+            </button>
+          </form>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock body %}

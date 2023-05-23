@@ -1,0 +1,67 @@
+<!-- extends -->
+{% extends 'base/base.html' %}
+
+<!-- page title -->
+{% block title %} Login {% endblock title %}
+
+<!-- Page Body -->
+{% block body %}
+
+<br /><br />
+<br /><br />
+<div class="container h-100 d-flex align-items-center justify-content-center">
+  <!-- ? ---------------- Card - Start ---------------- -->
+  <div class="card border-dark mb-3" style="max-width: 80%">
+    <div class="row g-0">
+      <!-- * ---------------- Card - Image ---------------- -->
+      <div class="col-md-6">
+        <img
+          src="static/img/undraw_login_re_4vu2.svg"
+          class="img-fluid rounded-start"
+          alt="Image of a Login"
+        />
+      </div>
+      <div class="col-md-5">
+        <!-- ? ---------------- Card - Body ---------------- -->
+        <div class="card-body">
+          <!-- * ---------------- Card - Title ---------------- -->
+          <h5 class="card-title">Login</h5>
+          <div class="card-text">
+            <!-- ? ---------------- Form - start ---------------- -->
+            <form action="/login" method="POST">
+              <div class="mb-3">
+                <!-- * ---------------- Input - Email ---------------- -->
+                <label for="Email1" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="Email1"
+                  name="email"
+                  aria-describedby="emailHelp"
+                />
+                <div id="emailHelp" class="form-text">
+                  We'll never share your email with anyone else.
+                </div>
+              </div>
+              <!-- * ---------------- Input - Password ---------------- -->
+              <div class="mb-3">
+                <label for="Password1" class="form-label"> Password </label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="Password1"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <!-- ? ---------------- Form - End ---------------- -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ? ---------------- Card - End ---------------- -->
+</div>
+
+{% endblock body %}
